@@ -6,6 +6,7 @@ Copy reusable skills into the project's `.claude/skills/` directory.
 
 1. **pi-builder** (`~/code/pi-builder/skills/`) — primary source
 2. **Global Claude skills** (`~/.claude/skills/`) — fallback for skills not in pi-builder
+3. **straw-hats** (`~/tools/straw-hats/`) — chain-based workflow skills (cloned via tools.yaml)
 
 ## Skills to Install
 
@@ -17,6 +18,19 @@ Copy reusable skills into the project's `.claude/skills/` directory.
 | `frontend-design` | pi-builder | if stack includes frontend/UI |
 | `tdd` | global | always — test-driven development |
 | `refactor` | global | always — structured refactors |
+| `bug` | global | always — triage bugs, file GitHub issues |
+| `design-interface` | global | always — parallel interface design comparison |
+| `interrogate` | global | always — stress-test plans and designs |
+| `prd` | global | always — turn conversation into a PRD |
+| `slice` | global | always — break PRD into shippable GitHub issues |
+| `glossary` | global | always — extract domain language glossary |
+| `setup-ts` | global | if stack includes TypeScript |
+| `chat` | straw-hats | always — structured brainstorm, no implementation |
+| `research` | straw-hats | always — multi-pass research with validation |
+| `board-prd` | straw-hats | always — thorough PRD with architecture review |
+| `build` | straw-hats | always — full TDD build with eval loop |
+| `cr` | straw-hats | always — scoped change request with PR |
+| `full-test` | straw-hats | always — PRD-driven QA with verdict |
 
 ## Steps
 
