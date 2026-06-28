@@ -7,6 +7,7 @@ Copy reusable skills into the project's `.claude/skills/` directory.
 1. **pi-builder** (`~/code/pi-builder/skills/`) — primary source
 2. **Global Claude skills** (`~/.claude/skills/`) — fallback for skills not in pi-builder
 3. **workflows** (`~/tools/workflows/`) — role-based workflow skills (cloned via tools.yaml)
+4. **project-guide** (`~/tools/project-guide/`) — guide skill (cloned via tools.yaml)
 
 ## Skills to Install
 
@@ -31,6 +32,7 @@ Copy reusable skills into the project's `.claude/skills/` directory.
 | `build` | workflows | always — full TDD build with eval loop |
 | `cr` | workflows | always — scoped change request with PR |
 | `full-test` | workflows | always — PRD-driven QA with verdict |
+| `guide` | project-guide | always — catalogue of all installed skills and tools |
 
 ## Steps
 
@@ -39,7 +41,9 @@ Copy reusable skills into the project's `.claude/skills/` directory.
 2. For each skill to install:
    - Check pi-builder source first: `~/code/pi-builder/skills/<skill>/`
    - Fall back to global: `~/.claude/skills/<skill>/`
-   - If neither exists, skip and note it in the summary.
+   - For workflows skills: copy from `~/tools/workflows/<skill>/`
+   - For guide: copy from `~/tools/project-guide/`
+   - If source not found, skip and note it in the summary.
 
 3. Copy the entire skill directory:
    ```bash

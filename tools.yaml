@@ -66,3 +66,9 @@ tools:
     desc: Model-agnostic role-based workflow skills — chat, research, board-prd, build (TDD with eval loop), cr (change request + PR), full-test (PRD-driven QA). Each workflow runs through phases with clearly defined role disciplines.
     tags: [core, skills, workflows]
     # no install step — skills are copied into .claude/skills/ by install-skills.md
+
+  - repo: flenry/project-guide
+    url: https://github.com/flenry/project-guide
+    desc: Self-assembling guide skill. Scans installed skills and ~/tools to produce a catalogue of everything available, with recommendations by task type.
+    tags: [core, skills]
+    # no install step — copied into .claude/skills/ by install-skills.md
