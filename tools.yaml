@@ -1,0 +1,28 @@
+# Tools pulled to ~/tools on every project-init run.
+# Add new entries here as the toolset grows.
+# Fields:
+#   repo: GitHub repo in "owner/name" format
+#   url:  clone URL
+#   desc: what it does (used in CLAUDE.md tool catalogue)
+#   tags: categories — used to conditionally recommend tools in the generated CLAUDE.md
+
+tools:
+  - repo: kunchenguid/axi
+    url: https://github.com/kunchenguid/axi
+    desc: Agent-ergonomic CLI framework. ~40% fewer tokens than standard CLIs. Use for GitHub operations, browser automation, and any CLI you'd otherwise call via Bash.
+    tags: [core, github, cli]
+
+  - repo: kunchenguid/firstmate
+    url: https://github.com/kunchenguid/firstmate
+    desc: Multi-agent orchestration via tmux + git worktrees. One "firstmate" agent dispatches work to parallel crewmates, consolidates into PRs.
+    tags: [core, orchestration, multi-agent]
+
+  - repo: kunchenguid/context7
+    url: https://github.com/kunchenguid/context7
+    desc: MCP server that injects up-to-date library documentation into agent context. Avoids hallucinated API usage.
+    tags: [core, mcp, documentation]
+
+  - repo: kunchenguid/agent-browser-axi
+    url: https://github.com/kunchenguid/agent-browser-axi
+    desc: AXI-native browser automation. Token-efficient alternative to Playwright/Puppeteer for agents.
+    tags: [browser, automation]
