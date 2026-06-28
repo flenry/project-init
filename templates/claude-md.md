@@ -62,18 +62,24 @@ All shared tools live in `~/tools`. Run `git -C ~/tools/<name> pull` to update a
 
 ### AXI — Agent-Ergonomic CLI (`~/tools/axi`)
 
-Use AXI tools instead of raw Bash/CLI calls wherever available. AXI outputs are designed for agents: structured, token-efficient (~40% cheaper than standard CLIs), and unambiguous.
+AXI tools are globally installed and ready to use. They produce structured, token-efficient output (~40% cheaper than standard CLIs) designed for agents.
 
-**For GitHub operations** — prefer AXI's GitHub tools over raw `gh` or `git` calls:
+**For GitHub operations** — use `gh-axi` instead of raw `gh`:
 ```bash
 # Instead of: gh pr list
-~/tools/axi/github pr-list
+gh-axi pr list
 
 # Instead of: gh issue create ...
-~/tools/axi/github issue-create --title "..." --body "..."
+gh-axi issue create --title "..." --body "..."
 ```
 
-Check `~/tools/axi/README.md` for the full command catalogue before reaching for `gh` or `git` directly.
+**For browser automation** — use `chrome-devtools-axi` instead of Playwright:
+```bash
+chrome-devtools-axi open https://example.com
+chrome-devtools-axi screenshot
+```
+
+Check `~/tools/axi/README.md` for the full command catalogue before reaching for `gh`, `git`, or Playwright directly.
 
 ### Context7 — Live Library Docs (`~/tools/context7`)
 

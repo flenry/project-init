@@ -1,48 +1,62 @@
 # Tools pulled to ~/tools on every project-init run.
 # Add new entries here as the toolset grows.
 # Fields:
-#   repo: GitHub repo in "owner/name" format
-#   url:  clone URL
-#   desc: what it does (used in CLAUDE.md tool catalogue)
-#   tags: categories — used to conditionally recommend tools in the generated CLAUDE.md
+#   repo:    GitHub repo in "owner/name" format
+#   url:     clone URL
+#   desc:    what it does (used in CLAUDE.md tool catalogue)
+#   tags:    categories — used to conditionally recommend tools in the generated CLAUDE.md
+#   install: shell command(s) to run after clone/pull to make the tool usable
+#   mcp:     true if this tool needs to be registered as an MCP server (noted in output)
 
 tools:
   - repo: kunchenguid/axi
     url: https://github.com/kunchenguid/axi
     desc: Agent-ergonomic CLI framework. ~40% fewer tokens than standard CLIs. Use for GitHub operations, browser automation, and any CLI you'd otherwise call via Bash.
     tags: [core, github, cli]
+    install: |
+      npm install -g gh-axi
+      npm install -g chrome-devtools-axi
 
   - repo: kunchenguid/firstmate
     url: https://github.com/kunchenguid/firstmate
     desc: Multi-agent orchestration via tmux + git worktrees. One "firstmate" agent dispatches work to parallel crewmates, consolidates into PRs.
     tags: [core, orchestration, multi-agent]
+    # no install step — invoked directly via `claude` from the cloned dir
 
   - repo: kunchenguid/context7
     url: https://github.com/kunchenguid/context7
     desc: MCP server that injects up-to-date library documentation into agent context. Avoids hallucinated API usage.
     tags: [core, mcp, documentation]
+    install: npm install -g @upstash/context7-mcp
+    mcp: true
 
   - repo: kunchenguid/agent-browser-axi
     url: https://github.com/kunchenguid/agent-browser-axi
     desc: AXI-native browser automation. Token-efficient alternative to Playwright/Puppeteer for agents.
     tags: [browser, automation]
+    install: npm install -g agent-browser-axi
 
   - repo: DeusData/codebase-memory-mcp
     url: https://github.com/DeusData/codebase-memory-mcp
     desc: MCP server that builds a knowledge graph of the codebase. Answers architectural queries in <1ms, reduces code-exploration token cost by up to 99%. Zero dependencies, single binary.
     tags: [core, mcp, codebase, performance]
+    install: curl -fsSL https://raw.githubusercontent.com/DeusData/codebase-memory-mcp/main/install.sh | bash
+    mcp: true
 
   - repo: Panniantong/agent-reach
     url: https://github.com/Panniantong/agent-reach
     desc: Unified internet-access layer for agents. One install gives agents access to YouTube, Twitter, Reddit, GitHub, RSS, and web pages without managing individual API integrations.
     tags: [core, web, research, internet]
+    install: pip install agent-reach
 
   - repo: google-labs-code/design.md
     url: https://github.com/google-labs-code/design.md
     desc: Machine-readable design token format (YAML + Markdown). Gives agents exact color, typography, and component specs to follow consistently. Exports to Tailwind CSS and other frameworks.
     tags: [frontend, ui, design]
+    # no global install — used as a spec file in the project root
 
   - repo: kunchenguid/lavish-axi
     url: https://github.com/kunchenguid/lavish-axi
     desc: Human-agent collaboration tool for HTML artifacts. Opens agent-generated HTML in a local browser so you can annotate elements and send targeted feedback for iterative refinement. AXI-native, token-efficient.
     tags: [frontend, ui, browser, feedback]
+    install: npm install -g lavish-axi
