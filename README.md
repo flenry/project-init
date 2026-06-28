@@ -6,7 +6,6 @@ Claude Code skill that bootstraps any project for agentic engineering.
 
 ```bash
 git clone git@github.com:flenry/project-init.git .claude/skills/project-init
-git clone git@github.com:flenry/project-guide.git .claude/skills/guide
 ```
 
 ## Usage
