@@ -27,29 +27,31 @@ Designed to be:
 
 ## Execution Order (full init)
 
-Run these tasks in sequence. Each task file has full instructions.
+Run ALL four steps in sequence every time. Do not skip or reorder steps based on the project type or the user's answers. Read each task file before executing it.
 
 ### Step 1 — Interview
 Read and execute `tasks/interview.md`.
 
 Gather: project name, what's being built, stack, agent role, constraints, verification bar.
 
-### Step 2 — Bootstrap Tools
+After completing the interview, tell the user: "Got it — now bootstrapping tools, installing skills, and writing context files." Then proceed immediately to Step 2 without waiting for a response.
+
+### Step 2 — Bootstrap Tools *(always run, even for non-agent projects)*
 Read and execute `tasks/bootstrap-tools.md`.
 
-For each entry in `tools.yaml`: clone if missing, `git pull` if present. Report status.
+For each entry in `tools.yaml`: clone if missing, `git pull` if present. Report status per tool. Tools are useful to developers regardless of whether the project uses agents directly.
 
-### Step 3 — Install Skills
+### Step 3 — Install Skills *(always run)*
 Read and execute `tasks/install-skills.md`.
 
-Copy relevant skills from pi-builder (`~/code/pi-builder/skills/`) or global (`~/.claude/skills/`) into `.claude/skills/` in the current project.
+Copy relevant skills from pi-builder (`~/code/pi-builder/skills/`) or global (`~/.claude/skills/`) into `.claude/skills/` in the current project. Report what was installed and what was skipped/missing.
 
-### Step 4 — Write Context Files
+### Step 4 — Write Context Files *(use the template — do not write from scratch)*
 Read and execute `tasks/write-context.md`.
 
-Fill `templates/claude-md.md` with interview answers and tool catalogue. Write:
-- `CLAUDE.md` — primary context file
-- `AGENTS.md` — copy for OpenAI-compatible agents
+You MUST use `templates/claude-md.md` as the base. Fill in all `{{PLACEHOLDER}}` values. Do not write a custom or shortened CLAUDE.md — the full template structure must be preserved so future agents have complete context. Write:
+- `CLAUDE.md` — filled template
+- `AGENTS.md` — exact copy of CLAUDE.md
 - `.gitignore` — standard entries appended/created
 
 ---

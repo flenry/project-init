@@ -1,6 +1,6 @@
 # Write Context Task
 
-Generate the project's `CLAUDE.md` (and `AGENTS.md` symlink) from the interview answers and tool catalogue.
+Generate the project's `CLAUDE.md` (and `AGENTS.md`) from the interview answers and tool catalogue.
 
 ## Inputs
 
@@ -13,19 +13,16 @@ And the tool list from `tools.yaml` (already bootstrapped).
 
 ## Steps
 
-1. Read `templates/claude-md.md` — the base template.
-2. Fill in all `{{PLACEHOLDER}}` values using the interview answers.
-3. Select which tools from `tools.yaml` to highlight based on the project stack and agent role:
-   - GitHub/CLI work → emphasize `axi`
-   - Browser automation → emphasize `agent-browser-axi`
-   - Multi-agent / parallel work → emphasize `firstmate`
-   - Any external library usage → emphasize `context7`
-4. Write the filled template to `CLAUDE.md` in the current working directory.
-5. Create `AGENTS.md` as a copy of `CLAUDE.md` (for OpenAI-compatible agents):
+1. Read `templates/claude-md.md` in full. This is the required output structure — do not substitute a shorter or custom version.
+2. Fill in every `{{PLACEHOLDER}}` using the interview answers. If the user left something as TBD, write "TBD" — do not remove the section.
+3. For the `{{#if VERIFICATION_BAR}}` blocks: keep the block matching the user's answer, remove the other two blocks entirely.
+4. Keep ALL tool sections intact regardless of project type. Every project benefits from the shared toolset. Do not drop sections because "this project doesn't use agents."
+5. Write the completed template to `CLAUDE.md`.
+6. Copy to `AGENTS.md`:
    ```bash
    cp CLAUDE.md AGENTS.md
    ```
-6. Write `.gitignore` entries (append if file exists, create if not) — see list below.
+7. Write `.gitignore` entries (append if file exists, create if not) — see list below.
 
 ## .gitignore Entries to Add
 
@@ -54,6 +51,7 @@ logs/
 
 ## Notes
 
+- **Never write a custom or shortened CLAUDE.md.** The template structure must be preserved so future agents have complete context.
 - Don't overwrite an existing CLAUDE.md without warning the user first.
 - `~/tools` is in the home directory — no need to gitignore it.
 - If AGENTS.md already differs from CLAUDE.md (manually edited), warn rather than overwrite.
