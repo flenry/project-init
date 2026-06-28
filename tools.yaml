@@ -41,3 +41,8 @@ tools:
     url: https://github.com/google-labs-code/design.md
     desc: Machine-readable design token format (YAML + Markdown). Gives agents exact color, typography, and component specs to follow consistently. Exports to Tailwind CSS and other frameworks.
     tags: [frontend, ui, design]
+
+  - repo: kunchenguid/lavish-axi
+    url: https://github.com/kunchenguid/lavish-axi
+    desc: Human-agent collaboration tool for HTML artifacts. Opens agent-generated HTML in a local browser so you can annotate elements and send targeted feedback for iterative refinement. AXI-native, token-efficient.
+    tags: [frontend, ui, browser, feedback]

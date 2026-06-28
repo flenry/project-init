@@ -99,6 +99,10 @@ Setup: see `~/tools/codebase-memory-mcp/README.md`. Add as an MCP server before 
 
 Gives agents unified access to the web (YouTube, Reddit, GitHub, RSS, arbitrary pages) via a single install. Use when an agent needs to research external sources, fetch documentation, or monitor feeds. See `~/tools/agent-reach/README.md`.
 
+### Lavish AXI — HTML Artifact Review (`~/tools/lavish-axi`) *(frontend projects)*
+
+When an agent generates an HTML file, open it with Lavish to annotate elements and send targeted feedback directly — no copy-pasting diffs. Keeps the human-agent iteration loop tight for visual work. See `~/tools/lavish-axi/README.md`.
+
 ### Design.md — Machine-Readable Design Tokens (`~/tools/design.md`) *(frontend projects)*
 
 Defines colors, typography, spacing, and component rules in a format agents can parse and enforce. Before generating any UI, check whether a `design.md` file exists in this project — if so, treat it as a hard constraint, not a suggestion. See `~/tools/design.md/README.md`.
