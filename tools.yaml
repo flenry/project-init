@@ -61,8 +61,8 @@ tools:
     tags: [frontend, ui, browser, feedback]
     install: npm install -g lavish-axi
 
-  - repo: flenry/straw-hats
-    url: https://github.com/flenry/straw-hats
-    desc: Model-agnostic chain-based workflow skills — chat, research, board-prd, build (TDD with eval loop), cr (change request + PR), full-test (PRD-driven QA). Adapted from the Straw Hat crew agent chains.
-    tags: [core, skills, workflows, chains]
+  - repo: flenry/workflows
+    url: https://github.com/flenry/workflows
+    desc: Model-agnostic role-based workflow skills — chat, research, board-prd, build (TDD with eval loop), cr (change request + PR), full-test (PRD-driven QA). Each workflow runs through phases with clearly defined role disciplines.
+    tags: [core, skills, workflows]
     # no install step — skills are copied into .claude/skills/ by install-skills.md

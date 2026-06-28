@@ -6,7 +6,7 @@ Copy reusable skills into the project's `.claude/skills/` directory.
 
 1. **pi-builder** (`~/code/pi-builder/skills/`) — primary source
 2. **Global Claude skills** (`~/.claude/skills/`) — fallback for skills not in pi-builder
-3. **straw-hats** (`~/tools/straw-hats/`) — chain-based workflow skills (cloned via tools.yaml)
+3. **workflows** (`~/tools/workflows/`) — role-based workflow skills (cloned via tools.yaml)
 
 ## Skills to Install
 
@@ -25,12 +25,12 @@ Copy reusable skills into the project's `.claude/skills/` directory.
 | `slice` | global | always — break PRD into shippable GitHub issues |
 | `glossary` | global | always — extract domain language glossary |
 | `setup-ts` | global | if stack includes TypeScript |
-| `chat` | straw-hats | always — structured brainstorm, no implementation |
-| `research` | straw-hats | always — multi-pass research with validation |
-| `board-prd` | straw-hats | always — thorough PRD with architecture review |
-| `build` | straw-hats | always — full TDD build with eval loop |
-| `cr` | straw-hats | always — scoped change request with PR |
-| `full-test` | straw-hats | always — PRD-driven QA with verdict |
+| `chat` | workflows | always — structured brainstorm, no implementation |
+| `research` | workflows | always — multi-pass research with validation |
+| `board-prd` | workflows | always — thorough PRD with architecture review |
+| `build` | workflows | always — full TDD build with eval loop |
+| `cr` | workflows | always — scoped change request with PR |
+| `full-test` | workflows | always — PRD-driven QA with verdict |
 
 ## Steps
 
