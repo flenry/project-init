@@ -89,6 +89,41 @@ For parallel workstreams (multiple features, agents running concurrently), use F
 
 Token-efficient browser automation for agents. Use instead of Playwright/Puppeteer when an agent needs to interact with a browser. See `~/tools/agent-browser-axi/README.md`.
 
+### Codebase Memory MCP — Code Intelligence (`~/tools/codebase-memory-mcp`)
+
+MCP server that builds a knowledge graph of this repo. Use it before exploring unfamiliar code — it answers "where is X defined?", "what calls Y?", and impact analysis queries in under 1ms at a fraction of the token cost of grep-based exploration.
+
+Setup: see `~/tools/codebase-memory-mcp/README.md`. Add as an MCP server before starting deep codebase work.
+
+### Agent Reach — Internet Access (`~/tools/agent-reach`)
+
+Gives agents unified access to the web (YouTube, Reddit, GitHub, RSS, arbitrary pages) via a single install. Use when an agent needs to research external sources, fetch documentation, or monitor feeds. See `~/tools/agent-reach/README.md`.
+
+### Design.md — Machine-Readable Design Tokens (`~/tools/design.md`) *(frontend projects)*
+
+Defines colors, typography, spacing, and component rules in a format agents can parse and enforce. Before generating any UI, check whether a `design.md` file exists in this project — if so, treat it as a hard constraint, not a suggestion. See `~/tools/design.md/README.md`.
+
+---
+
+## Multi-Agent Patterns
+
+When spawning multiple agents, apply these patterns (drawn from Cloudflare's production AI review system):
+
+**Specialize agents by concern — don't use one generalist for everything.**
+Split work by domain: one agent for security review, one for performance, one for correctness. Each carries less context and produces higher-quality output than a single agent trying to do all three.
+
+**Circuit breaker — degrade gracefully, never block.**
+If an agent fails or times out, continue with the remaining agents and flag the gap. Never let one failing agent block the entire pipeline.
+
+**Route models to task complexity.**
+Use cheaper/faster models for low-stakes tasks (linting, formatting, summarization). Reserve expensive models for architecture decisions, security review, and anything where a wrong answer has real consequences.
+
+**Cache aggressively.**
+Structure prompts so the static portion (system instructions, codebase context) comes first and stays identical across calls. This is what enables high prompt cache hit rates. Variable content (the specific diff, the user's question) goes at the end.
+
+**Log agent trajectories, not just outputs.**
+Track which tools each agent called, in what order, and what it decided not to do. Output quality is necessary but not sufficient — a correct answer via a wrong path is a reliability risk.
+
 ---
 
 ## Skills Available
@@ -114,6 +149,8 @@ Project skills live in `.claude/skills/`. Load them on-demand — don't pre-load
 4. **Load skills on demand** — don't bloat the session context
 5. **Feedback loops over human interrupts** — route failures back to agents
 6. **Human judgment on architecture** — agents implement; humans decide trade-offs
+7. **Specialize multi-agent work** — one agent per concern, circuit breakers, model routing by task complexity
+8. **Check codebase-memory-mcp before grepping** — orders of magnitude cheaper for code exploration
 
 ---
 

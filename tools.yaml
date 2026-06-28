@@ -26,3 +26,18 @@ tools:
     url: https://github.com/kunchenguid/agent-browser-axi
     desc: AXI-native browser automation. Token-efficient alternative to Playwright/Puppeteer for agents.
     tags: [browser, automation]
+
+  - repo: DeusData/codebase-memory-mcp
+    url: https://github.com/DeusData/codebase-memory-mcp
+    desc: MCP server that builds a knowledge graph of the codebase. Answers architectural queries in <1ms, reduces code-exploration token cost by up to 99%. Zero dependencies, single binary.
+    tags: [core, mcp, codebase, performance]
+
+  - repo: Panniantong/agent-reach
+    url: https://github.com/Panniantong/agent-reach
+    desc: Unified internet-access layer for agents. One install gives agents access to YouTube, Twitter, Reddit, GitHub, RSS, and web pages without managing individual API integrations.
+    tags: [core, web, research, internet]
+
+  - repo: google-labs-code/design.md
+    url: https://github.com/google-labs-code/design.md
+    desc: Machine-readable design token format (YAML + Markdown). Gives agents exact color, typography, and component specs to follow consistently. Exports to Tailwind CSS and other frameworks.
+    tags: [frontend, ui, design]
